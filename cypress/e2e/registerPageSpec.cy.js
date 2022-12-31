@@ -14,19 +14,19 @@ describe('register page tests suite', () => {
         cy.visit('/')
     })
 
-    xit('verify that english icon languge clickable and change language', function() {
+    it('verify that english icon languge clickable and change language', function() {
         registerPage.clickOnEnglishIconLan()
 
         registerPage.elements.getButtonLogin().should('include.text', this.data.loginTextEN)   
     })
 
-    xit('verify that russian icon languge clickable and change language', function() {
+    it('verify that russian icon languge clickable and change language', function() {
         registerPage.clickOnRussianIconLan()
 
         registerPage.elements.getButtonLogin().should('include.text', this.data.loginTextRU)  
     })
 
-    xit('verify that thailand icon languge clickable and change language', function() {
+    it('verify that thailand icon languge clickable and change language', function() {
         registerPage.clickOnThailandIconLan()
 
         registerPage.elements.getButtonLogin().should('include.text', this.data.loginTextTH)     
