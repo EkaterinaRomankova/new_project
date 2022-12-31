@@ -23,3 +23,14 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('logIn', (email, password) =>{
+    const emailField = '.form-horizontal >.form-group:nth-child(3) .col-sm-6:nth-child(2) .input'
+    const passwordField = '[type="password"]'
+    const submitButton = '#byemail .btn'
+
+    cy.get(emailField).type(email)
+    cy.get(passwordField).type(password)
+    cy.get(submitButton).click()
+
+})
