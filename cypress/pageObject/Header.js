@@ -1,7 +1,8 @@
 class Header{
     elements = {
         getAgentMenu: () => cy.get('.main-header .dropdown-toggle'),
-        getLogOut: () => cy.get('a[href="/logout/"]')
+        getLogOut: () => cy.get('a[href="/logout/"]'),
+        getHelpDescIcon: () => cy.get('#header-messages')
 
     }
 
@@ -11,6 +12,10 @@ class Header{
 
     clickOnLogOut(){
         this.elements.getLogOut().click()
+    }
+
+    clickOnHelpDescIcon(){
+        this.elements.getHelpDescIcon().click()
     }
 }
 

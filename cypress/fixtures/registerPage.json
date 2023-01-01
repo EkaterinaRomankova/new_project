@@ -3,5 +3,9 @@
     "loginTextRU": "Войти",
     "loginTextTH": "เข้าสู่ระบบ",
     "email": "agent@qatest.site",
-    "password": "12345678"
+    "password": "12345678",
+    "heplDescUrl": "https://qatest.site/helpdesk",
+    "selectAllStatuses": "All statuses",
+    "selectActive": "Active",
+    "selectClosed": "Closed"
 }

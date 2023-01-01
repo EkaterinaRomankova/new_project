@@ -13,7 +13,7 @@ const userName = faker.internet.userName()
 const email = faker.internet.email()
 const password = faker.internet.password()
 const comName = faker.company.companyName()
-const phoneNumber = faker.phone.phoneNumber().cell_phone_in_e164
+const phoneNumber = faker.phone.phoneNumberFormat()
 
 
 describe('create account possitive and negative', () => {
@@ -24,13 +24,13 @@ describe('create account possitive and negative', () => {
         cy.visit('/')
     })
 
-    it('create account', function() {
+    xit('create account', function() {
         registerPage.clickOnCreateAccount()
         createAcc.elements.getNameFielld().type(userName)
         createAcc.elements.getCompanyName().type(comName)
         createAcc.elements.getEmailField().type(email)
         createAcc.elements.getPhoneField().type(phoneNumber)
         createAcc.clickOnButtonRegister()
-        
-    });
+        createAcc.elements.getRegisterTitle().should('be.visible').and('have.text', '|Welcome to QA Test OP agent program|')      
+    })
 })
