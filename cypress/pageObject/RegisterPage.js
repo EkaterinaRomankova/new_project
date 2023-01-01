@@ -3,7 +3,9 @@ class RegisterPage{
         getEnglishIconLan: () => cy.get('a[href="/en"]'),
         getButtonLogin: () => cy.get('a[hreh="#"]'),
         getRussianIconLan: () => cy.get('a[href="/ru"]'),
-        getThailandIconLan: () => cy.get('a[href="/th"]')
+        getThailandIconLan: () => cy.get('a[href="/th"]'),
+        getLogo:() => cy.get('.logo'),
+        getCreateAccount: () => cy.get('a[href="#registerModal"]')
     }
 
     clickOnEnglishIconLan(){
@@ -20,6 +22,10 @@ class RegisterPage{
 
     clickOnButtonLogin(){
         this.elements.getButtonLogin().click()
+    }
+
+    clickOnCreateAccount(){
+        this.elements.getCreateAccount().click()
     }
 }
 

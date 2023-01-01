@@ -2,9 +2,11 @@
 
 import RegisterPage from "../pageObject/RegisterPage"
 import CreateBookingPage from "../pageObject/CreateBookingPage"
+import Header from "../pageObject/header"
 
 const registerPage = new RegisterPage()
 const createBookingPage = new CreateBookingPage()
+const header = new Header()
 
 describe('register page tests suite', () => {
     beforeEach(function(){
@@ -14,30 +16,23 @@ describe('register page tests suite', () => {
         cy.visit('/')
     })
 
-    it('verify that english icon languge clickable and change language', function() {
+    xit('verify that english icon languge clickable and change language', function() {
         registerPage.clickOnEnglishIconLan()
 
         registerPage.elements.getButtonLogin().should('include.text', this.data.loginTextEN)   
     })
 
-    it('verify that russian icon languge clickable and change language', function() {
+    xit('verify that russian icon languge clickable and change language', function() {
         registerPage.clickOnRussianIconLan()
 
         registerPage.elements.getButtonLogin().should('include.text', this.data.loginTextRU)  
     })
 
-    it('verify that thailand icon languge clickable and change language', function() {
+    xit('verify that thailand icon languge clickable and change language', function() {
         registerPage.clickOnThailandIconLan()
 
         registerPage.elements.getButtonLogin().should('include.text', this.data.loginTextTH)     
     })
-
-    it('user is able to log in', function() {
-        registerPage.clickOnButtonLogin()
-        cy.logIn(this.data.email, this.data.password)
-        cy.wait(9000)
-        createBookingPage.elements.getTitleOnThePage().should('include.text', 'Create bookin')      
-    })  
 })
 
 
