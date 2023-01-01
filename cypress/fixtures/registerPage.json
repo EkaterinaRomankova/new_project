@@ -7,5 +7,8 @@
     "heplDescUrl": "https://qatest.site/helpdesk",
     "selectAllStatuses": "All statuses",
     "selectActive": "Active",
-    "selectClosed": "Closed"
+    "selectClosed": "Closed",
+    "titleOnNewRequest": "Start a discussion with QA Test OP",
+    "titleMessage": "New rule",
+    "message": "New Rule"
 }

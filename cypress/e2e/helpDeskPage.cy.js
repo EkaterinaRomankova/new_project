@@ -42,6 +42,13 @@ describe('create booking page', () => {
         cy.wait(9000)
         header.clickOnHelpDescIcon()
         helpDesc.clickOnNewRequest()
-        
+        helpDesc.elements.getTitleOfNewRequest().should('be.visible').and('have.text', this.data.titleOnNewRequest)
+        helpDesc.elements.getTitleMessage().type(this.data.titleMessage)
+        helpDesc.elements.getMessage().type(this.data.message)
+        helpDesc.clickOnButtonSend()
+        helpDesc.clickOnCloseWindow()
+        helpDesc.elements.getListOfTopics().then(($el) => {
+            $el == this.data.titleMessage
+        })
     })
 })    
