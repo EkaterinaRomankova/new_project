@@ -13,5 +13,9 @@
     "message": "New Rule",
     "statusReserved": " Reserved",
     "statusConfirmed" : " Confirmed",
-    "allStatuses" : [" Reserved", " Confirmed", " Pending"]
+    "allStatuses" : [" Reserved", " Confirmed", " Pending"],
+    "routeWay1": "Phuiket - Bangkok (VIP)",
+    "routeWayColom1" : "Phuket Town → Bangkok Khao San",
+    "routeWay2": "Chiang Mai - Ayutthaya - Bangkok (economy)",
+    "routeWayColom2" : ["Ayutthaya → Bangkok Khao San", "Chiang Mai Bus Terminal 1 → Bangkok Khao San"]
 }
