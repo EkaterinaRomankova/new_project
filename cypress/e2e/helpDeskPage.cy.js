@@ -33,6 +33,9 @@ describe('create booking page', () => {
         header.clickOnHelpDescIcon()
         helpDesc.elements.getSelectMenu().select(this.data.selectAllStatuses)
         helpDesc.elements.getSelectMenu().select(this.data.selectActive)
+        helpDesc.elements.getAllActiveStatuses().each(($el) => {
+            expect($el.text()).to.include(this.data.selectActive)
+        })
         helpDesc.elements.getSelectMenu().select(this.data.selectClosed)
     })
 
@@ -47,8 +50,11 @@ describe('create booking page', () => {
         helpDesc.elements.getMessage().type(this.data.message)
         helpDesc.clickOnButtonSend()
         helpDesc.clickOnCloseWindow()
-        helpDesc.elements.getListOfTopics().then(($el) => {
-            $el == this.data.titleMessage
+        helpDesc.elements.getListOfTopics().each(($el) => {
+            if($el.text() == this.data.titleMessage){
+                cy.wrap($el).click()
+                console.log($el.text());
+            }
         })
     })
 })    

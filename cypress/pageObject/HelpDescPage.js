@@ -7,7 +7,8 @@ class HelpDescPage{
         getMessage: () => cy.get('.request-message'),
         getButtonSend: () => cy.get('.btn-send-new-request'),
         getCloseWindow: () => cy.get('.close-button'),
-        getListOfTopics: () => cy.get('#topics-list-box .topic-title')
+        getListOfTopics: () => cy.get('#topics-list-box .topic-title'),
+        getAllActiveStatuses: () => cy.get('#topics-list-box .topic-title span')
     }
 
     clickOnNewRequest(){
