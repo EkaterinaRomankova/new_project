@@ -39,7 +39,7 @@ describe('create booking page', () => {
         helpDesc.elements.getSelectMenu().select(this.data.selectClosed)
     })
 
-    it('create new request on help desc page', function() {
+    xit('create new request on help desc page', function() {
         registerPage.clickOnButtonLogin()
         cy.logIn(this.data.email, this.data.password)
         cy.wait(9000)

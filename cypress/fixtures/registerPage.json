@@ -10,5 +10,8 @@
     "selectClosed": "Closed",
     "titleOnNewRequest": "Start a discussion with QA Test OP",
     "titleMessage": "New rule",
-    "message": "New Rule"
+    "message": "New Rule",
+    "statusReserved": " Reserved",
+    "statusConfirmed" : " Confirmed",
+    "allStatuses" : [" Reserved", " Confirmed", " Pending"]
 }
