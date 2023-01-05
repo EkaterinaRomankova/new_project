@@ -50,11 +50,19 @@ describe('create booking page', () => {
         helpDesc.elements.getMessage().type(this.data.message)
         helpDesc.clickOnButtonSend()
         helpDesc.clickOnCloseWindow()
-        helpDesc.elements.getListOfTopics().each(($el) => {
-            if($el.text() == this.data.titleMessage){
-                cy.wrap($el).click()
+        helpDesc.elements.getListOfTopics().filter(':contains("ActiveNew rule")').first().click() //working
+    })
+
+    xit('create new request on help desc page', function() {
+        registerPage.clickOnButtonLogin()
+        cy.logIn(this.data.email, this.data.password)
+        cy.wait(9000)
+        header.clickOnHelpDescIcon()
+        helpDesc.elements.getListOfTopics().then(($el) => {
+            // if(("ActiveNew rule").includes($el.text())){
+            //     cy.wrap($el).click()
                 console.log($el.text());
-            }
-        })
+          //  }
+       })
     })
 })    
