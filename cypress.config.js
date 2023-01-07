@@ -1,4 +1,5 @@
-const { defineConfig } = require("cypress");
+const { defineConfig } = require("cypress")
+const {downloadFile} = require('cypress-downloadfile/lib/addPlugin')
 
 module.exports = defineConfig({
   viewportWidth: 1920,
@@ -9,6 +10,8 @@ module.exports = defineConfig({
     baseUrl: 'https://qatest.site',
     setupNodeEvents(on, config) {
       // implement node event listeners here
+      on('task', {downloadFile})
     },
-  },
+  }, 
 })
+

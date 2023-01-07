@@ -1,5 +1,3 @@
-import { takeWhile } from "cypress/types/lodash"
-
 class CreateBookingPage{
     elements = {
         getTitleOnThePage: () => cy.get('.content-header.booking-header h1'),
@@ -34,7 +32,7 @@ class CreateBookingPage{
     }
 
     clickOnWednesday(){
-        takeWhile.elements.getWednesday().click()
+        this.elements.getWednesday().click()
     }
 }
 

@@ -11,5 +11,8 @@
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
     "cypress": "^12.1.0"
+  },
+  "dependencies": {
+    "cypress-downloadfile": "^1.2.3"
   }
 }

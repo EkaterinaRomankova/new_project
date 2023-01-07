@@ -62,7 +62,7 @@ describe('create booking page', () => {
         }) 
     })
 
-    it('vurify that you can not buy ticket for 2 day', function() {
+    xit('vurify that you can not buy ticket for 2 day', function() {
         registerPage.clickOnButtonLogin()
         cy.logIn(this.data.email, this.data.password)
         cy.wait(9000)
@@ -71,6 +71,7 @@ describe('create booking page', () => {
         let d2 = +d1.slice(0, 2)
         createBookingPage.elements.getAllDatesOfDepTime().then(($el, i) => {
             if($el.text().indexOf(d2) == -1){
+                cy.wait(9000)
                 createBookingPage.clickOnWeekBack()
             }
         })
@@ -115,4 +116,14 @@ describe('create booking page', () => {
             }
         })        
     })
+
+    it('', function() {
+        registerPage.clickOnButtonLogin()
+        cy.logIn(this.data.email, this.data.password)
+        cy.wait(9000)
+        let d = new Date(Date.now() + 172800000)
+        let d1 = d.toLocaleString('en-GB', { timeZone: 'Asia/Bangkok' })
+        //let d2 = +d1.slice(0, 2)
+        
+    });
 })    

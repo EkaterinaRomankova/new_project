@@ -66,4 +66,12 @@ describe('create booking page', () => {
             expect(this.data.routeWayColom2).to.include($el.text())
         })          
     })
+
+    xit('download excel', function() {
+        registerPage.clickOnButtonLogin()
+        cy.logIn(this.data.email, this.data.password)
+        cy.wait(9000)
+        bookingList.clickOnBokinglistOfOrders()
+        
+    })
 })    

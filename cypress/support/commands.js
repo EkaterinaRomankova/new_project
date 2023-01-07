@@ -32,5 +32,6 @@ Cypress.Commands.add('logIn', (email, password) =>{
     cy.get(emailField).type(email)
     cy.get(passwordField).type(password)
     cy.get(submitButton).click()
-
 })
+
+require('cypress-downloadfile/lib/downloadFileCommand')
