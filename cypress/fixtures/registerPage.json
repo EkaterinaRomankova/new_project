@@ -17,5 +17,7 @@
     "routeWay1": "Phuiket - Bangkok (VIP)",
     "routeWayColom1" : "Phuket Town → Bangkok Khao San",
     "routeWay2": "Chiang Mai - Ayutthaya - Bangkok (economy)",
-    "routeWayColom2" : ["Ayutthaya → Bangkok Khao San", "Chiang Mai Bus Terminal 1 → Bangkok Khao San"]
+    "routeWayColom2" : ["Ayutthaya → Bangkok Khao San", "Chiang Mai Bus Terminal 1 → Bangkok Khao San"],
+    "unavaiblaClass": "unavailable",
+    "disabledClass": "disabled"
 }
