@@ -110,20 +110,39 @@ describe('create booking page', () => {
                     createBookingPage.elements.getBusTickets().should('have.class', this.data.disabledClass)
                     createBookingPage.clickOnWednesday()
                     cy.wait(4000)
-                    createBookingPage.elements.getBusTickets().should('have.class', this.data.disabledClass) // should not work
-                    //createBookingPage.elements.getBusTickets().should('not.have.class', this.data.disabledClass) //should work
+                    //createBookingPage.elements.getBusTickets().should('have.class', this.data.disabledClass) // should not work
+                    createBookingPage.elements.getBusTickets().should('not.have.class', this.data.disabledClass) //should work
                 })
             }
         })        
     })
 
-    it('', function() {
+    xit('', function() {
         registerPage.clickOnButtonLogin()
         cy.logIn(this.data.email, this.data.password)
         cy.wait(9000)
         let d = new Date(Date.now() + 172800000)
         let d1 = d.toLocaleString('en-GB', { timeZone: 'Asia/Bangkok' })
-        //let d2 = +d1.slice(0, 2)
+        //let d2 = +d1.slice(0, 2)   
+    })
+
+    it('create booking', function() {
+        registerPage.clickOnButtonLogin()
+        cy.logIn(this.data.email, this.data.password)
+        cy.wait(9000)
+        createBookingPage.elements.getBusTickets().then(($el) => {
+            if($el.hasClass(this.data.disabledClass)){
+               cy.get('.col-lg-12 .day-wrapper.selected').next().click()
+               cy.wait(5000)
+            }
+        })
+        createBookingPage.elements.getBusTickets().first().click()
+        createBookingPage.elements.getTableSeats().filter('.selected').first().click()
+        // createBookingPage.elements.getTableSeats().then(($el) => {
+        //     if($el.hasClass(this.data.avaiblaClass)){
+        //         cy.wrap($el).first().click()
+        //     }
+        // })
         
-    });
+    })
 })    

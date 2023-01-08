@@ -8,7 +8,8 @@ class CreateBookingPage{
         getNextWeek: () => cy.get('.col-lg-12 .calendar-week-next'),
         getMonday: () => cy.get('.calendar-wrapper .calendar-day-selection-wrapper :nth-child(1)'),
         getTuesday: () => cy.get('.calendar-wrapper .calendar-day-selection-wrapper :nth-child(2)'),
-        getWednesday: () => cy.get('.calendar-wrapper .calendar-day-selection-wrapper :nth-child(3)')
+        getWednesday: () => cy.get('.calendar-wrapper .calendar-day-selection-wrapper :nth-child(3)'),
+        getTableSeats: () => cy.get('table.seats tr td')
     }
 
     clickOnWeekBack(){

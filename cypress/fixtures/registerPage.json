@@ -19,5 +19,6 @@
     "routeWay2": "Chiang Mai - Ayutthaya - Bangkok (economy)",
     "routeWayColom2" : ["Ayutthaya → Bangkok Khao San", "Chiang Mai Bus Terminal 1 → Bangkok Khao San"],
     "unavaiblaClass": "unavailable",
-    "disabledClass": "disabled"
+    "disabledClass": "disabled",
+    "avaiblaClass": "available"
 }
