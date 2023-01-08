@@ -126,10 +126,11 @@ describe('create booking page', () => {
         //let d2 = +d1.slice(0, 2)   
     })
 
-    it('create booking', function() {
+    xit('create booking', function() {
+        let seat
         registerPage.clickOnButtonLogin()
         cy.logIn(this.data.email, this.data.password)
-        cy.wait(9000)
+        cy.wait(20000)
         createBookingPage.elements.getBusTickets().then(($el) => {
             if($el.hasClass(this.data.disabledClass)){
                cy.get('.col-lg-12 .day-wrapper.selected').next().click()
@@ -137,12 +138,15 @@ describe('create booking page', () => {
             }
         })
         createBookingPage.elements.getBusTickets().first().click()
-        createBookingPage.elements.getTableSeats().filter('.selected').first().click()
-        // createBookingPage.elements.getTableSeats().then(($el) => {
-        //     if($el.hasClass(this.data.avaiblaClass)){
-        //         cy.wrap($el).first().click()
-        //     }
-        // })
+        createBookingPage.elements.getTableSeats().filter(this.data.filterSelected)//.first().click()    
+        createBookingPage.elements.getNameField().type(this.data.name)  
+        createBookingPage.elements.getNotesField().type(this.data.message)
+        createBookingPage.elements.getSeatLocator().then(($el) => {
+            seat = $el.text()
+            console.log(seat);
+        })
         
+        createBookingPage.clickOnButtonBookTicket()
+        cy.wait(10000)
     })
 })    

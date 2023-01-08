@@ -20,5 +20,7 @@
     "routeWayColom2" : ["Ayutthaya → Bangkok Khao San", "Chiang Mai Bus Terminal 1 → Bangkok Khao San"],
     "unavaiblaClass": "unavailable",
     "disabledClass": "disabled",
-    "avaiblaClass": "available"
+    "avaiblaClass": "available",
+    "name": "Stive",
+    "filterSelected": ".selected"
 }

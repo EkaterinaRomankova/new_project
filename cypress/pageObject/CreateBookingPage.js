@@ -9,7 +9,11 @@ class CreateBookingPage{
         getMonday: () => cy.get('.calendar-wrapper .calendar-day-selection-wrapper :nth-child(1)'),
         getTuesday: () => cy.get('.calendar-wrapper .calendar-day-selection-wrapper :nth-child(2)'),
         getWednesday: () => cy.get('.calendar-wrapper .calendar-day-selection-wrapper :nth-child(3)'),
-        getTableSeats: () => cy.get('table.seats tr td')
+        getTableSeats: () => cy.get('table.seats tr td'),
+        getNameField: () => cy.get('[placeholder="Passenger name"]'),
+        getNotesField: () => cy.get('.notes-row #booking_notes'),
+        getButtonBookTicket: () => cy.get('[onclick="bookTicket();"]'),
+        getSeatLocator: () => cy.get('label .seat-number')
     }
 
     clickOnWeekBack(){
@@ -34,6 +38,10 @@ class CreateBookingPage{
 
     clickOnWednesday(){
         this.elements.getWednesday().click()
+    }
+
+    clickOnButtonBookTicket(){
+        this.elements.getButtonBookTicket().click()
     }
 }
 
