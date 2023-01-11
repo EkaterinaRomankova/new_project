@@ -149,4 +149,45 @@ describe('create booking page', () => {
         createBookingPage.clickOnButtonBookTicket()
         cy.wait(10000)
     })
+
+    xit('verify anavaible dates second version in a week', function() {
+        registerPage.clickOnButtonLogin()
+        cy.logIn(this.data.email, this.data.password)
+        cy.wait(9000)
+        let d = new Date() 
+        let d1 = d.toLocaleString('en-GB', { timeZone: 'Asia/Bangkok' })
+        let d2 = +d1.slice(0, 2)
+        createBookingPage.elements.getAllDatesOfDepTime().each(($el, i) => {
+            if($el.text() < d2){
+                expect($el).to.have.class(this.data.unavaiblaClass)
+            }          
+         })     
+    })
+
+    xit('verify anavaible dates third version in a week', function() {
+        registerPage.clickOnButtonLogin()
+        cy.logIn(this.data.email, this.data.password)
+        cy.wait(9000)
+        let d = new Date() 
+        let d1 = d.toLocaleString('en-GB', { timeZone: 'Asia/Bangkok' })
+        let d2 = +d1.slice(0, 2)
+        createBookingPage.elements.getAllDatesOfDepTime().filter('.unavailable').each(($el, i) => {    
+            expect(+$el.text()).to.be.lessThan(d2)
+        })   
+    })     
+    
+    xit('verify anavaible dates in a month', function() {
+        registerPage.clickOnButtonLogin()
+        cy.logIn(this.data.email, this.data.password)
+        cy.wait(9000)
+        let d = new Date() 
+        let d1 = d.toLocaleString('en-GB', { timeZone: 'Asia/Bangkok' })
+        let d2 = +d1.slice(0, 2)
+        createBookingPage.clickOnGetMonth()
+        createBookingPage.elements.getAllDatesOfMonth().filter('.unavailable').then(($el, i) => {
+            console.log(+$el.text());
+            
+            //expect(+$el.text()).to.be.lessThan(d2)
+        })   
+    })    
 })    

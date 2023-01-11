@@ -13,7 +13,9 @@ class CreateBookingPage{
         getNameField: () => cy.get('[placeholder="Passenger name"]'),
         getNotesField: () => cy.get('.notes-row #booking_notes'),
         getButtonBookTicket: () => cy.get('[onclick="bookTicket();"]'),
-        getSeatLocator: () => cy.get('label .seat-number')
+        getSeatLocator: () => cy.get('label .seat-number'),
+        getMonth: () => cy.get('.calendar-view-wrapper .calendar-view-month'),
+        getAllDatesOfMonth: () => cy.get('.col-lg-12.calendar-day-selection-wrapper div')
     }
 
     clickOnWeekBack(){
@@ -42,6 +44,10 @@ class CreateBookingPage{
 
     clickOnButtonBookTicket(){
         this.elements.getButtonBookTicket().click()
+    }
+
+    clickOnGetMonth(){
+        this.elements.getMonth().click()
     }
 }
 
