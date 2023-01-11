@@ -22,5 +22,6 @@
     "disabledClass": "disabled",
     "avaiblaClass": "available",
     "name": "Stive",
-    "filterSelected": ".selected"
+    "filterSelected": ".selected",
+    "bookedClass": "booked"
 }

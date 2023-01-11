@@ -117,23 +117,22 @@ describe('create booking page', () => {
         })        
     })
 
-    xit('', function() {
-        registerPage.clickOnButtonLogin()
-        cy.logIn(this.data.email, this.data.password)
-        cy.wait(9000)
-        let d = new Date(Date.now() + 172800000)
-        let d1 = d.toLocaleString('en-GB', { timeZone: 'Asia/Bangkok' })
-        //let d2 = +d1.slice(0, 2)   
-    })
-
     xit('create booking', function() {
         let seat
         registerPage.clickOnButtonLogin()
         cy.logIn(this.data.email, this.data.password)
         cy.wait(20000)
+        // cy.get('[aria-labelledby="select2-departure-container"]').click() //here i choose other departure station
+        // cy.get('.select2-results__options li').eq(0).click()
+        cy.wait(3000)
         createBookingPage.elements.getBusTickets().then(($el) => {
             if($el.hasClass(this.data.disabledClass)){
                cy.get('.col-lg-12 .day-wrapper.selected').next().click()
+               cy.wait(5000)
+            }
+
+            if($el.hasClass(this.data.bookedClass)){
+                cy.get('.col-lg-12 .day-wrapper.selected').next().click()
                cy.wait(5000)
             }
         })
