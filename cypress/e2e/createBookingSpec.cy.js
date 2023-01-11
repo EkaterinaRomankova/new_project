@@ -184,10 +184,9 @@ describe('create booking page', () => {
         let d1 = d.toLocaleString('en-GB', { timeZone: 'Asia/Bangkok' })
         let d2 = +d1.slice(0, 2)
         createBookingPage.clickOnGetMonth()
-        createBookingPage.elements.getAllDatesOfMonth().filter('.unavailable').then(($el, i) => {
-            console.log(+$el.text());
-            
-            //expect(+$el.text()).to.be.lessThan(d2)
+        createBookingPage.elements.getAllDatesOfMonth().filter('.unavailable').not('.shaded').each(($el, i) => {
+            console.log(+$el.text());          
+            expect(+$el.text()).to.be.lessThan(d2)
         })   
     })    
 })    
