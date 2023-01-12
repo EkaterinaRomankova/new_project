@@ -33,6 +33,15 @@ describe('register page tests suite', () => {
 
         registerPage.elements.getButtonLogin().should('include.text', this.data.loginTextTH)     
     })
+
+    xit('recover password', function() {
+        registerPage.clickOnButtonLogin()
+        registerPage.clickOnRestorePassword()
+        cy.wait(5000)
+        registerPage.elements.getEmailFieldRestorePassword().type(this.data.email)
+        registerPage.clickOnRestoreButton()
+        registerPage.elements.getMessageOfRestore().should('have.text', this.data.restoreMessage)
+    })
 })
 
 

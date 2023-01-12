@@ -23,5 +23,6 @@
     "avaiblaClass": "available",
     "name": "Stive",
     "filterSelected": ".selected",
-    "bookedClass": "booked"
+    "bookedClass": "booked",
+    "restoreMessage": "Пожалуйста, проверьте вашу почту для получения пароля и дальнейших инструкций."
 }
