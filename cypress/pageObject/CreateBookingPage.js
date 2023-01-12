@@ -15,7 +15,10 @@ class CreateBookingPage{
         getButtonBookTicket: () => cy.get('[onclick="bookTicket();"]'),
         getSeatLocator: () => cy.get('label .seat-number'),
         getMonth: () => cy.get('.calendar-view-wrapper .calendar-view-month'),
-        getAllDatesOfMonth: () => cy.get('.col-lg-12.calendar-day-selection-wrapper div')
+        getAllDatesOfMonth: () => cy.get('.col-lg-12.calendar-day-selection-wrapper div'),
+        getBookingDetailsPopUp: () => cy.get('.popup-booking h3 '),
+        getHambergerMenu: () => cy.get('.navbar-static-top [role="button"]'),
+        getSideBarMenu: () => cy.get('.sidebar-menu li')
     }
 
     clickOnWeekBack(){
@@ -48,6 +51,10 @@ class CreateBookingPage{
 
     clickOnGetMonth(){
         this.elements.getMonth().click()
+    }
+
+    clickOnHamburgerMenu(){
+        this.elements.getHambergerMenu().click()
     }
 }
 

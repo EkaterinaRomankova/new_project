@@ -147,6 +147,7 @@ describe('create booking page', () => {
         
         createBookingPage.clickOnButtonBookTicket()
         cy.wait(10000)
+        createBookingPage.elements.getBookingDetailsPopUp().should('contain', this.data.bookingDeatails)
     })
 
     xit('verify anavaible dates second version in a week', function() {
@@ -187,5 +188,16 @@ describe('create booking page', () => {
             console.log(+$el.text());          
             expect(+$el.text()).to.be.lessThan(d2)
         })   
-    })    
+    })
+    
+    xit('verify hamburger menu', function() {
+        registerPage.clickOnButtonLogin()
+        cy.logIn(this.data.email, this.data.password)
+        cy.wait(9000)
+        createBookingPage.clickOnHamburgerMenu()
+        createBookingPage.elements.getSideBarMenu().should('have.length', 4)
+        createBookingPage.elements.getSideBarMenu().each(($el, i) => {
+           expect($el.text()).to.include(this.data.namesOfSideMenu[i])
+        })
+    })
 })    

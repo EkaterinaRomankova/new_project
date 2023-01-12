@@ -24,5 +24,7 @@
     "name": "Stive",
     "filterSelected": ".selected",
     "bookedClass": "booked",
-    "restoreMessage": "Пожалуйста, проверьте вашу почту для получения пароля и дальнейших инструкций."
+    "restoreMessage": "Пожалуйста, проверьте вашу почту для получения пароля и дальнейших инструкций.",
+    "bookingDeatails": "Booking details",
+    "namesOfSideMenu": ["Booking", "Bookings management", "Account management", "Contact us"]
 }
