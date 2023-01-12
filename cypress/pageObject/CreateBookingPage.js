@@ -18,7 +18,7 @@ class CreateBookingPage{
         getAllDatesOfMonth: () => cy.get('.col-lg-12.calendar-day-selection-wrapper div'),
         getBookingDetailsPopUp: () => cy.get('.popup-booking h3 '),
         getHambergerMenu: () => cy.get('.navbar-static-top [role="button"]'),
-        getSideBarMenu: () => cy.get('.sidebar-menu li')
+        getSideBarMenu: () => cy.get('.sidebar-menu li'),
     }
 
     clickOnWeekBack(){
@@ -55,6 +55,10 @@ class CreateBookingPage{
 
     clickOnHamburgerMenu(){
         this.elements.getHambergerMenu().click()
+    }
+
+    clickOnDropDownMenu(){
+        this.elements.getDropDownMenu().click()
     }
 }
 
