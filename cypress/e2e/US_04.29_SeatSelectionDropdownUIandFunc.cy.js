@@ -109,4 +109,42 @@ describe('US_04.29 | Seat selection dropdown UI and functionality', () => {
            })
         }) 
     })
+
+    it('AT_04.12.01 | Create booking page > Verify any date earlier than the current date is not available.', function () {
+		let date = new Date() 
+        let dateThailand = date.toLocaleString('en-GB', { day: 'numeric', timeZone: 'Asia/Bangkok' })
+		let currentMonthAndYear = date.toLocaleString('en-GB', { month: 'short', year: 'numeric', timeZone: 'Asia/Bangkok'})
+		console.log(currentMonthAndYear);
+		console.log(dateThailand);
+		createBookingPage.getMonthDropdownSelect().select(currentMonthAndYear)
+		createBookingPage.getCalendarDays().not('.shaded').each(($el) => {
+            if($el.text() < dateThailand){
+                expect($el).to.have.class(this.createBookingPage.class.unavailableClass)
+            }          
+		})		
+	})
+
+    it('AT_04.04.01 | Create booking page > Verify that week/month format lable', function () {
+        let current = new Date()
+        current.setHours(current.getUTCHours() + 7)
+        current.setDate(current.getDate() - current.getDay() + 1)
+        console.log(current);
+	    let mondayDate = current.toLocaleString('en-GB', { month: 'short', day: 'numeric'})
+        current.setDate(current.getDate() - current.getDay() + 7)
+        console.log(current);
+        let sundayDate = current.toLocaleString('en-GB', { month: 'short', day: 'numeric'})
+        let weekFormat = mondayDate + " " + "-" + " " + sundayDate
+        createBookingPage.getLabelCalendar().then(($el) => {
+            let labelWeekFormat = $el.text()
+            expect(weekFormat).to.eq(labelWeekFormat)
+        })
+        createBookingPage.clickMonthBtn()
+        let dateForBooking = new Date()
+        dateForBooking.setDate(current.getDate() + 2)
+        let monthForBooking = dateForBooking.toLocaleString('en-US', { month: 'short', year: 'numeric', timeZone: 'Asia/Bangkok' })
+        createBookingPage.getLabelCalendar().then(($el) => {
+            let labelMonthFormat = $el.text()
+            expect(monthForBooking).to.eq(labelMonthFormat)
+        })
+    })
 })
