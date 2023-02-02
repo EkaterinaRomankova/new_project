@@ -112,13 +112,12 @@ describe('US_04.29 | Seat selection dropdown UI and functionality', () => {
 
     it('AT_04.12.01 | Create booking page > Verify any date earlier than the current date is not available.', function () {
 		let date = new Date() 
-        let dateThailand = date.toLocaleString('en-GB', { day: 'numeric', timeZone: 'Asia/Bangkok' })
+		let dateThailand = date.toLocaleString('en-GB', { day: 'numeric', timeZone: 'Asia/Bangkok' })
 		let currentMonthAndYear = date.toLocaleString('en-GB', { month: 'short', year: 'numeric', timeZone: 'Asia/Bangkok'})
-		console.log(currentMonthAndYear);
-		console.log(dateThailand);
 		createBookingPage.getMonthDropdownSelect().select(currentMonthAndYear)
 		createBookingPage.getCalendarDays().not('.shaded').each(($el) => {
-            if($el.text() < dateThailand){
+            if(+$el.text() < dateThailand){
+				console.log($el.text());
                 expect($el).to.have.class(this.createBookingPage.class.unavailableClass)
             }          
 		})		
