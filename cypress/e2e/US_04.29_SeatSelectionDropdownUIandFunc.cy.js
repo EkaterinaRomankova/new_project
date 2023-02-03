@@ -166,4 +166,33 @@ describe('US_04.29 | Seat selection dropdown UI and functionality', () => {
             expect(monthForBooking).to.eq(labelMonthFormat)
         })
     })
+
+    it('AT_04.12.03 | The first available date for booking is 2 days after today (the current date by GMT+7)',  function () {
+		let now = new Date()
+		now.setHours(now.getUTCHours() + 7)
+        now.setDate(now.getDate() + 2)
+		let dateForBooking = now.toLocaleString('en-US', { day: 'numeric' })
+		let currentTime = now.toLocaleString('it', { hour: 'numeric', minute: 'numeric' })
+		createBookingPage.getCalendarDays().filter('.selected').then(($el) => {
+			expect($el.text()).to.eq(dateForBooking)
+		})
+		createBookingPage.getAllTimeOfDep().then(($el) => {
+			if($el.text() < currentTime){
+				createBookingPage.getAllTripCard().then(($el) => {
+					expect($el).to.have.class('disabled')
+					createBookingPage.getCalendarDays().filter('.selected').next().click()
+					cy.wait(5000)
+					createBookingPage.getAllTripCard().each(($el) => {
+						cy.wrap($el).click()
+						createBookingPage.getLabelSeatSection().should('be.visible')
+					 })
+				})
+			}else{
+				createBookingPage.getAllTripCard().each(($el) => {
+					cy.wrap($el).click()
+					createBookingPage.getLabelSeatSection().should('be.visible')
+			     })
+			}
+		})
+	})
 })
